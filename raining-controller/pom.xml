@@ -21,8 +21,16 @@
     
     <dependencies>
         <dependency>
+            <groupId>com.xiao.raining</groupId>
+            <artifactId>raining-service</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
     </dependencies>
     

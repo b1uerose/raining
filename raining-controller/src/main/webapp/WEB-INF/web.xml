@@ -3,6 +3,31 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>helloservlet</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.HelloServlet</servlet-class>
+    </servlet>
     
+    <servlet-mapping>
+        <servlet-name>helloservlet</servlet-name>
+        <url-pattern>/helloservlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>lifecycle</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.LifeCycleServlet</servlet-class>
+<!--        服务器启动时，实例化和初始化servlet-->
+<!--        <load-on-startup>1</load-on-startup>-->
+        
+        <init-param>
+            <param-name>author</param-name>
+            <param-value>xiaojinlong</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>lifecycle</servlet-name>
+        <url-pattern>/lifecycle</url-pattern>
+    </servlet-mapping>
     
 </web-app>
