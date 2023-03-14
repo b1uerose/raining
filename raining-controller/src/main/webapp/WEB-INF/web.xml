@@ -30,4 +30,22 @@
         <url-pattern>/lifecycle</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>servletconfigtest</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.servletconfig.ServletConfigTestServlet</servlet-class>
+        <init-param>
+            <param-name>author</param-name>
+            <param-value>xiaojl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>copyright</param-name>
+            <param-value>rian coorporation</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>servletconfigtest</servlet-name>
+        <url-pattern>/servletconfigtest</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
