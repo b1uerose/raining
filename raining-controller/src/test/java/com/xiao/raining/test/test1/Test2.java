@@ -10,6 +10,9 @@ public class Test2 {
     
     @Test
     public void test() throws Exception {
+
+        String vformula = "=D2/E2";
+        System.out.println(vformula.replaceAll("[0-9]+", "\\$"));
         
     }
 }

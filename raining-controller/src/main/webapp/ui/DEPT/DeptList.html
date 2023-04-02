@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门列表</title>
+</head>
+<body>
+<script type="javascript">
+    
+    function deleteDept(id) {
+        if (window.confirm("确定要删除吗")) {
+            window.location.href = "/raining/dept/deptlist?id="+id
+        }
+    }
+    
+</script>
+<h1 align="center">部门列表</h1>
+<table align="center" border="1px" width="50%">
+    <tr>
+        <th>部门编码</th>
+        <th>部门名称</th>
+        <th>城市</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>销售部</td>
+        <td>厦门</td>
+        <td>
+            <a href="">删除</a>
+            <a href="EditDept.html">修改</a>
+            <a href="DeptDetail.html">详情</a>
+        </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>销售部</td>
+        <td>厦门</td>
+        <td>
+            <a href="">删除</a>
+            <a href="EditDept.html">修改</a>
+            <a href="DeptDetail.html">详情</a>
+        </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>销售部</td>
+        <td>厦门</td>
+        <td>
+            <a href="">删除</a>
+            <a href="EditDept.html">修改</a>
+            <a href="DeptDetail.html">详情</a>
+        </td>
+    </tr>
+</table>
+
+<a href="AddDept.html">新增</a>
+</body>
+</html>

@@ -4,48 +4,48 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>helloservlet</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.HelloServlet</servlet-class>
+        <servlet-name>deptlist</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.dept.DeptListServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
-        <servlet-name>helloservlet</servlet-name>
-        <url-pattern>/helloservlet</url-pattern>
+        <servlet-name>deptlist</servlet-name>
+        <url-pattern>/dept/deptlist</url-pattern>
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>lifecycle</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.LifeCycleServlet</servlet-class>
-<!--        服务器启动时，实例化和初始化servlet-->
-<!--        <load-on-startup>1</load-on-startup>-->
-        
-        <init-param>
-            <param-name>author</param-name>
-            <param-value>xiaojinlong</param-value>
-        </init-param>
+        <servlet-name>deptdetail</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.dept.DeptDetailServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
-        <servlet-name>lifecycle</servlet-name>
-        <url-pattern>/lifecycle</url-pattern>
+        <servlet-name>deptdetail</servlet-name>
+        <url-pattern>/dept/deptdetail</url-pattern>
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>servletconfigtest</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.servletconfig.ServletConfigTestServlet</servlet-class>
-        <init-param>
-            <param-name>author</param-name>
-            <param-value>xiaojl</param-value>
-        </init-param>
-        <init-param>
-            <param-name>copyright</param-name>
-            <param-value>rian coorporation</param-value>
-        </init-param>
+        <servlet-name>deptdelete</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.dept.DeptDeleteServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
-        <servlet-name>servletconfigtest</servlet-name>
-        <url-pattern>/servletconfigtest</url-pattern>
+        <servlet-name>deptdelete</servlet-name>
+        <url-pattern>/dept/deptdelete</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>deptadd</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.dept.DeptAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deptadd</servlet-name>
+        <url-pattern>/dept/deptadd</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>deptedit</servlet-name>
+        <servlet-class>com.xiao.raining.servlet.dept.DeptEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deptedit</servlet-name>
+        <url-pattern>/dept/deptedit</url-pattern>
     </servlet-mapping>
     
 </web-app>
