@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<a href="<%=request.getContextPath()%>/dept/deptlist">查看部门列表</a>
+<a href="<%=request.getContextPath()%>/dept/list">查看部门列表</a>
 </body>
 </html>

@@ -3,49 +3,5 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <servlet>
-        <servlet-name>deptlist</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.dept.DeptListServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deptlist</servlet-name>
-        <url-pattern>/dept/deptlist</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>deptdetail</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.dept.DeptDetailServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deptdetail</servlet-name>
-        <url-pattern>/dept/deptdetail</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>deptdelete</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.dept.DeptDeleteServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deptdelete</servlet-name>
-        <url-pattern>/dept/deptdelete</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>deptadd</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.dept.DeptAddServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deptadd</servlet-name>
-        <url-pattern>/dept/deptadd</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>deptedit</servlet-name>
-        <servlet-class>com.xiao.raining.servlet.dept.DeptEditServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deptedit</servlet-name>
-        <url-pattern>/dept/deptedit</url-pattern>
-    </servlet-mapping>
     
 </web-app>

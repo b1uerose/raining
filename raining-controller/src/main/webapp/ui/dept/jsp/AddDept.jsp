@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>新增部门</h1>
-<form action="<%=request.getContextPath()%>/dept/deptadd" method="post">
+<form action="<%=request.getContextPath()%>/dept/add" method="post">
     <ul>
         <li><label for="vcode">部门编号</label><input type="text" name="vcode" id="vcode"></li>
         <li><label for="vname">部门名称</label><input type="text" name="vname" id="vname"></li>
