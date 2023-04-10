@@ -57,5 +57,6 @@
 </table>
 
 <a href="<%=request.getContextPath()%>/ui/dept/jsp/AddDept.jsp">新增</a>
+<a href="<%=request.getContextPath()%>/logout">退出登录</a>
 </body>
 </html>

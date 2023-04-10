@@ -10,9 +10,11 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.xiao.raining.dao.utils.DBUtils;
 import com.xiao.raining.vo.dept.DeptVo;
@@ -29,8 +31,42 @@ public class DeptServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String servletPath = request.getServletPath();
+        //获取session对象，判断是否登录。小猫咪根据JSESSIONID获取的session对象
+
+        HttpSession session = request.getSession(false);
         
+        boolean isLoginSuccess = false;
+
+        if (session != null) {
+            Boolean isLogin = (Boolean) session.getAttribute("isLogin");
+            if (isLogin!=null && isLogin) {
+                isLoginSuccess = true;
+            }
+        }
+
+        if (!isLoginSuccess) {
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    String name = cookie.getName();
+                    String value = cookie.getValue();
+                    //说明是十天内面登录的
+                    if ("isLoginInTenDays".equals(name)) {
+                        //这边在来校验cookie中的账号和密码是否正确。这边先偷懒不校验了
+                        isLoginSuccess = true;
+                        request.getSession().setAttribute("isLogin", true);
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (!isLoginSuccess) {
+            response.sendRedirect(request.getContextPath() +"/ui/login/Login.jsp");
+            return;
+        }
+        
+        String servletPath = request.getServletPath();
         if ("/dept/list".equals(servletPath)) {
             //部门列表
             doList(request, response);
