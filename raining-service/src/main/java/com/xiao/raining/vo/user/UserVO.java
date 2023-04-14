@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Author: xiaojl
  * Date:2023-04-08 23:17
  */
-public class UserVo implements Serializable {
+public class UserVO implements Serializable {
     private static final long serialVersionUID = 5352530239373700521L;
     
     private String vcode;

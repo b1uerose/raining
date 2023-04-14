@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Author: xiaojl
  * Date:2023-04-05 11:07
  */
-public class DeptVo implements Serializable {
+public class DeptVO implements Serializable {
     
     private static final long serialVersionUID = 5231841155883593184L;
     

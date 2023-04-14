@@ -15,8 +15,7 @@
 \${1 + "abc"}
 
 ${empty param.vcode ? "没有输入用户名" : param.vcode}
-
-
+${not empty param.vcode ? param.vcode : "没有输入用户名"}
 
 </body>
 </html>

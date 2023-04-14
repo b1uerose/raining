@@ -1,5 +1,4 @@
-<%@ page import="com.xiao.raining.vo.dept.DeptVo" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,38 +24,51 @@
         <th>操作</th>
     </tr>
     
-    <%
-        List<DeptVo> deptList = (List<DeptVo>) request.getAttribute("deptList");
-        String contextPath = request.getContextPath();
-        for (DeptVo deptVo : deptList) {
-            //out.write("<tr>");
-            //out.write("    <td>" + deptVo.getVcode() + "</td>");
-            //out.write("    <td>" + deptVo.getVname() + "</td>");
-            //out.write("    <td>" + deptVo.getVlocation() + "</td>");
-            //out.write("    <td>");
-            //out.write("        <a href=\"javascript:void(0)\" onclick=\"deleteDept(" + deptVo.getId() + ")\">删除</a>");
-            //out.write("        <a href=\""+contextPath+"/ui/dept/jsp/EditDept.jsp\">修改</a>");
-            //out.write("        <a href=\""+contextPath+"/ui/dept/jsp/DeptDetail.jsp\">详情</a>");
-            //out.write("    </td>");
-            //out.write("</tr>");
-    %>
-            <tr>
-                <td><%= deptVo.getVcode()%></td>
-                <td><%= deptVo.getVname()%></td>
-                <td><%= deptVo.getVlocation()%></td>
-                <td>
-                    <a href="javascript:void(0)" onclick="deleteDept(<%=deptVo.getId()%>)">删除</a>
-                    <a href="<%=request.getContextPath()%>/dept/modify?id=<%=deptVo.getId()%>">修改</a>
-                    <a href="<%=request.getContextPath()%>/dept/detail?id=<%=deptVo.getId()%>">详情</a>
-                </td>
-            </tr>
-    <%
-        }
-    %>
+    <c:forEach items="${deptList}" var="deptVo">
+        <tr>
+            <td>${deptVo.vcode}</td>
+            <td>${deptVo.vname}</td>
+            <td>${deptVo.vlocation}</td>
+            <td>
+                <a href="javascript:void(0)" onclick="deleteDept(${deptVo.id})">删除</a>
+                <a href="${pageContext.request.contextPath}/dept/modify?id=${deptVo.id}">修改</a>
+                <a href="${pageContext.request.contextPath}/dept/detail?id=${deptVo.id}">详情</a>
+            </td>
+        </tr>
+    </c:forEach>
+    
+<%--    <%--%>
+<%--        List<DeptVo> deptList = (List<DeptVo>) request.getAttribute("deptList");--%>
+<%--        String contextPath = request.getContextPath();--%>
+<%--        for (DeptVo deptVo : deptList) {--%>
+<%--            //out.write("<tr>");--%>
+<%--            //out.write("    <td>" + deptVo.getVcode() + "</td>");--%>
+<%--            //out.write("    <td>" + deptVo.getVname() + "</td>");--%>
+<%--            //out.write("    <td>" + deptVo.getVlocation() + "</td>");--%>
+<%--            //out.write("    <td>");--%>
+<%--            //out.write("        <a href=\"javascript:void(0)\" onclick=\"deleteDept(" + deptVo.getId() + ")\">删除</a>");--%>
+<%--            //out.write("        <a href=\""+contextPath+"/ui/dept/jsp/EditDept.jsp\">修改</a>");--%>
+<%--            //out.write("        <a href=\""+contextPath+"/ui/dept/jsp/DeptDetail.jsp\">详情</a>");--%>
+<%--            //out.write("    </td>");--%>
+<%--            //out.write("</tr>");--%>
+<%--    %>--%>
+<%--            <tr>--%>
+<%--                <td><%= deptVo.getVcode()%></td>--%>
+<%--                <td><%= deptVo.getVname()%></td>--%>
+<%--                <td><%= deptVo.getVlocation()%></td>--%>
+<%--                <td>--%>
+<%--                    <a href="javascript:void(0)" onclick="deleteDept(<%=deptVo.getId()%>)">删除</a>--%>
+<%--                    <a href="<%=request.getContextPath()%>/dept/modify?id=<%=deptVo.getId()%>">修改</a>--%>
+<%--                    <a href="<%=request.getContextPath()%>/dept/detail?id=<%=deptVo.getId()%>">详情</a>--%>
+<%--                </td>--%>
+<%--            </tr>--%>
+<%--    <%--%>
+<%--        }--%>
+<%--    %>--%>
     <tr>
 </table>
 
-<a href="<%=request.getContextPath()%>/ui/dept/jsp/AddDept.jsp">新增</a>
-<a href="<%=request.getContextPath()%>/logout">退出登录</a>
+<a href="${pageContext.request.contextPath}/ui/dept/jsp/AddDept.jsp">新增</a>
+<a href="${pageContext.request.contextPath}/logout">退出登录</a>
 </body>
 </html>

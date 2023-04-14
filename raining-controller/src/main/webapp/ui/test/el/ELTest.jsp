@@ -1,4 +1,4 @@
-<%@ page import="com.xiao.raining.vo.user.UserVo" %>
+<%@ page import="com.xiao.raining.vo.user.UserVO" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %><%--
  el表达式测试
@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    UserVo user = new UserVo();
+    UserVO user = new UserVO();
     user.setVcode("xiaojl");
     user.setVname("肖金龙");
     

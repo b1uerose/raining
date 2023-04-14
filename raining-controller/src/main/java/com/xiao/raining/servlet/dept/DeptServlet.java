@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.xiao.raining.dao.utils.DBUtils;
-import com.xiao.raining.vo.dept.DeptVo;
+import com.xiao.raining.vo.dept.DeptVO;
 
 /**
  * 部门servlet
@@ -152,7 +152,7 @@ public class DeptServlet extends HttpServlet {
 
     private void modifyDept(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        DeptVo deptVo = queryDeptVo(id);
+        DeptVO deptVo = queryDeptVo(id);
         request.setAttribute("deptVo", deptVo);
         request.getRequestDispatcher("/ui/dept/jsp/ModifyDept.jsp").forward(request, response);
     }
@@ -190,17 +190,17 @@ public class DeptServlet extends HttpServlet {
      */
     private void queryDeptDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        DeptVo deptVo = queryDeptVo(id);
+        DeptVO deptVo = queryDeptVo(id);
         request.setAttribute("deptVo", deptVo);
         request.getRequestDispatcher("/ui/dept/jsp/DeptDetail.jsp").forward(request, response);
     }
 
-    private DeptVo queryDeptVo(String id) {
+    private DeptVO queryDeptVo(String id) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        DeptVo deptVo = new DeptVo();
+        DeptVO deptVo = new DeptVO();
         try {
             conn = DBUtils.getConnection();
             ps = conn.prepareStatement("select * from bd_dept where id = ?");
@@ -227,7 +227,7 @@ public class DeptServlet extends HttpServlet {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<DeptVo> deptList = new ArrayList<>();
+        List<DeptVO> deptList = new ArrayList<>();
         try {
             conn = DBUtils.getConnection();
             String sql = "select * from bd_dept ";
@@ -240,7 +240,7 @@ public class DeptServlet extends HttpServlet {
                 String vlocation = rs.getString("vlocation");
                 int id = rs.getInt("id");
 
-                DeptVo deptVo = new DeptVo();
+                DeptVO deptVo = new DeptVO();
                 deptVo.setVcode(vcode);
                 deptVo.setVname(vname);
                 deptVo.setVlocation(vlocation);
