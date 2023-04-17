@@ -14,7 +14,6 @@ import javax.servlet.ServletResponse;
  * Author: xiaojl
  * Date:2023-04-12 22:35
  */
-//@WebFilter("/*")
 public class FilterTest1 implements Filter {
     
     public FilterTest1() {

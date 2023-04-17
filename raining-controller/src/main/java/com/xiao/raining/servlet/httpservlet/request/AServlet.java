@@ -3,6 +3,7 @@ package com.xiao.raining.servlet.httpservlet.request;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Author: xiaojl
  * Date:2023-03-26 11:17
  */
-@WebServlet("/a.do")
+@WebServlet(urlPatterns = "/a.do", initParams = {@WebInitParam(name = "1", value = "2"), @WebInitParam(name = "2", value = "3")})
 public class AServlet extends HttpServlet {
 
     @Override
@@ -32,6 +33,14 @@ public class AServlet extends HttpServlet {
         
         //请求转发，不一定是要是个servlet。可以是任务tomcat中的合法资源
         //request.getRequestDispatcher("/ui/Forward.html").forward(request, response);
+
+        StringBuffer requestURL = request.getRequestURL();
+        System.out.println(requestURL);
+        System.out.println(request.getRequestURI());
+        String servletPath = request.getServletPath();
+        System.out.println(servletPath);
+
+
         System.out.println("aservlet中的get方法执行了");
     }
 }
