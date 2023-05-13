@@ -14,6 +14,7 @@
         <module>raining-controller</module>
         <module>raining-service</module>
         <module>raining-dao</module>
+        <module>raining-ai</module>
     </modules>
 
     <properties>

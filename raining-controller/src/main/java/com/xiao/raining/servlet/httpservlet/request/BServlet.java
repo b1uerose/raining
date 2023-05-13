@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.xiao.raining.listener.test.TestBundingVo1;
+import com.xiao.raining.listener.test.TestBundingVo2;
 
 /**
  * Author: xiaojl
@@ -25,7 +29,18 @@ public class BServlet extends HttpServlet {
         //PrintWriter writer = response.getWriter();
         //writer.print("bservlet output");
         //writer.print("date is :" + date);
-        System.out.println("bservlet中的get方法执行了");
+        //System.out.println("bservlet中的get方法执行了");
 
+        HttpSession session = request.getSession();
+        TestBundingVo1 vo1 = new TestBundingVo1();
+        //request.setAttribute("vo1", vo1);
+        session.setAttribute("vo1", vo1);
+        
+        TestBundingVo2 vo2 = new TestBundingVo2();
+        //request.setAttribute("vo2", vo2);
+        session.setAttribute("vo2", vo2);
+        
+        session.removeAttribute("vo1");
+        
     }
 }

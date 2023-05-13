@@ -36,6 +36,41 @@ public class RegularExpress {
             String group = matcher.group();
             System.out.println(group);
         }
+    }
+
+    /**
+     * 匹配分组但不捕获
+     * @throws Exception
+     */
+    @Test
+    public void test3() throws Exception {
+        String data = "2023-10-01";
+        Pattern compile = Pattern.compile("\\d{4}-(?:0[1-9]|1[0-2])-\\d{2}");
+        Matcher matcher = compile.matcher(data);
+
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+            //会报错。
+            //System.out.println(matcher.group(1));
+        }
+    }
+    
+    @Test
+    public void _4Test() throws Exception {
+        String data = "gaaa";
+        
+        String reg1 = "ga+";
+        String reg2 = "ga.*";
+
+        Matcher matcher = Pattern.compile(reg1).matcher(data);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+
+        matcher = Pattern.compile(reg2).matcher(data);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
 
 
     }

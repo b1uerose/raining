@@ -13,6 +13,15 @@ public class UserVO implements Serializable {
     private String vcode;
     private String vname;
     private String vpassword;
+    private String pk_user;
+
+    public String getPk_user() {
+        return pk_user;
+    }
+
+    public void setPk_user(String pk_user) {
+        this.pk_user = pk_user;
+    }
 
     public String getVcode() {
         return vcode;

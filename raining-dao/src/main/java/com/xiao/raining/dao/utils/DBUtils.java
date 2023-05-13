@@ -14,11 +14,11 @@ import java.util.ResourceBundle;
  */
 public class DBUtils {
 
-    private static ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
-    private static String driver = bundle.getString("driver");
-    private static String url = bundle.getString("url");
-    private static String username = bundle.getString("username");
-    private static String password = bundle.getString("password");
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
+    private static final String driver = bundle.getString("driver");
+    private static final String url = bundle.getString("url");
+    private static final String username = bundle.getString("username");
+    private static final String password = bundle.getString("password");
 
     static {
         try {

@@ -34,13 +34,20 @@ public class AServlet extends HttpServlet {
         //请求转发，不一定是要是个servlet。可以是任务tomcat中的合法资源
         //request.getRequestDispatcher("/ui/Forward.html").forward(request, response);
 
-        StringBuffer requestURL = request.getRequestURL();
-        System.out.println(requestURL);
-        System.out.println(request.getRequestURI());
-        String servletPath = request.getServletPath();
-        System.out.println(servletPath);
+        //StringBuffer requestURL = request.getRequestURL();
+        //System.out.println(requestURL);
+        //System.out.println(request.getRequestURI());
+        //String servletPath = request.getServletPath();
+        //System.out.println(servletPath);
 
+        System.out.println(request.getQueryString());
+        System.out.println(request.getPathInfo());
 
-        System.out.println("aservlet中的get方法执行了");
+        //HttpSession session = request.getSession();
+        //session.setAttribute("user", "xiaojl");
+        //session.setAttribute("user", "sunl");
+        //session.removeAttribute("user");
+
+        //System.out.println("aservlet中的get方法执行了");
     }
 }

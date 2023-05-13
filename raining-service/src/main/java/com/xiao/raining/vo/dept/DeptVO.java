@@ -12,6 +12,7 @@ public class DeptVO implements Serializable {
     private static final long serialVersionUID = 5231841155883593184L;
     
     private Integer id;
+    private String pk_dept;
     private String vcode;
     private String vname;
     private String vlocation;
@@ -46,5 +47,13 @@ public class DeptVO implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getPk_dept() {
+        return pk_dept;
+    }
+
+    public void setPk_dept(String pk_dept) {
+        this.pk_dept = pk_dept;
     }
 }

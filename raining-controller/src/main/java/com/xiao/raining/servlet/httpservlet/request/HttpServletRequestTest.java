@@ -22,9 +22,7 @@ public class HttpServletRequestTest extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String contextPath = request.getServletContext().getContextPath();
-
         String contextPath1 = request.getContextPath();
-
         System.out.println("引用的上下文路径：" + contextPath);
         System.out.println("引用的上下文路径1：" + contextPath1);
 

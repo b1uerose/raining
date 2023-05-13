@@ -60,10 +60,11 @@ public class DeptServlet extends HttpServlet {
         try {
             conn = DBUtils.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("insert into bd_dept (vcode,vname,vlocation) values (?,?,?)");
+            ps = conn.prepareStatement("insert into bd_dept (pk_dept,vcode,vname,vlocation) values (?,?,?,?)");
             ps.setString(1, vcode);
-            ps.setString(2, vname);
-            ps.setString(3, vlocation);
+            ps.setString(2, vcode);
+            ps.setString(3, vname);
+            ps.setString(4, vlocation);
             ps.executeUpdate();
 
             conn.commit();
@@ -93,7 +94,7 @@ public class DeptServlet extends HttpServlet {
         try {
             conn = DBUtils.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("update bd_dept set vcode = ?, vname = ?, vlocation = ? where id = ?");
+            ps = conn.prepareStatement("update bd_dept set vcode = ?, vname = ?, vlocation = ? where pk_dept = ?");
             ps.setString(1, vcode);
             ps.setString(2, vname);
             ps.setString(3, vlocation);
@@ -128,7 +129,7 @@ public class DeptServlet extends HttpServlet {
         try {
             conn = DBUtils.getConnection();
             conn.setAutoCommit(false);
-            ps = conn.prepareStatement("delete from bd_dept where id = ? ");
+            ps = conn.prepareStatement("delete from bd_dept where pk_dept = ? ");
             ps.setString(1, id);
             ps.executeUpdate();
             conn.commit();
@@ -177,7 +178,8 @@ public class DeptServlet extends HttpServlet {
                 deptVo.setVcode(vcode);
                 deptVo.setVname(vname);
                 deptVo.setVlocation(vlocation);
-                deptVo.setId(Integer.valueOf(id));
+                deptVo.setPk_dept(id);
+                //deptVo.setId(Integer.valueOf(id));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -202,13 +204,13 @@ public class DeptServlet extends HttpServlet {
                 String vcode = rs.getString("vcode");
                 String vname = rs.getString("vname");
                 String vlocation = rs.getString("vlocation");
-                int id = rs.getInt("id");
+                String pk_dept = rs.getString("pk_dept");
 
                 DeptVO deptVo = new DeptVO();
                 deptVo.setVcode(vcode);
                 deptVo.setVname(vname);
                 deptVo.setVlocation(vlocation);
-                deptVo.setId(id);
+                deptVo.setPk_dept(pk_dept);
                 deptList.add(deptVo);
             }
         } catch (SQLException e) {
