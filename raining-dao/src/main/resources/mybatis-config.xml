@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    
+<!--    从别的配置文件中获取属性，后续可以引用这个配置文件中的内容-->
+    <properties resource="jdbc.properties" />
+    
+<!--    默认环境，当SqlSessionFactoryBuilder创建SqlSessionFactory的时候，没有指定环境的话，就会使用这个默认的环境-->
+    <environments default="raining">
+<!--        1.其中的一个环境-->
+<!--        2.一般一个数据库对应一个SqlSessionFactory-->
+<!--        3.一个环境对应一个SqlSessionFacotry对应-->
+        <environment id="raining">
+<!--            事务管理,用于指定mybatis用什么来管理事务-->
+<!--            1.有两个值 JDBC和MANAGED-->
+<!--            2.JDBC 表示mybatis使用jdbc来管理事务-->
+<!--                connection.setAutoCommit(false);-->
+<!--                ...-->
+<!--                ...-->
+<!--                connection.commit()-->
+<!--            3.MANAGED表示mybatis使用别的JavaEE容器来管理事务，比如spring-->
+<!--            4.mybatis提供了一个事务管理接口 Transacntion;-->
+<!--                JDBCTransaction-->
+<!--                ManagedTransaction-->
+            <transactionManager type="JDBC"/>
+<!--            数据源，用于提供连接对象-->
+<!--            数据源是一套规范，JDK提供的规范javax.sql.DataSource-->
+<!--            type有三种-->
+<!--                1.UNPOOLED 不使用数据库连接池。每一次都是新建连接-->
+<!--                2.POOLED 使用mybatis自己实现的连接池-->
+<!--                3、JNDI 使用第三方的连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+<!--                最大连接数-->
+                <property name="poolMaximumActiveConnections" value="10"/>
+<!--                强行让某个链接空闲,超时时间-->
+                <property name="poolMaximumCheckoutTime" value="10000"/>
+<!--                打印日志，并尝试获取链接的时间间隔-->
+                <property name="poolTimeToWait" value="2000"/>
+<!--                空闲连接数-->
+                <property name="poolMaximumIdleConnections" value="5"/>
+            </dataSource>
+        </environment>
+
+        <environment id="mybatis">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+                <property name="poolMaximumActiveConnections" value="3"/>
+                <property name="poolMaximumCheckoutTime" value="10000"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers>
+<!--        配置sql映射文件-->
+        <mapper resource="mapper/CarMapper.xml"/>
+    </mappers>
+</configuration>

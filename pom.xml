@@ -24,9 +24,16 @@
         <spring.version>5.2.22.RELEASE</spring.version>
     </properties>
     
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+        </dependency>
+    </dependencies>
+    
     <dependencyManagement>
         <dependencies>
-            
 <!--            当前工程-->
             <dependency>
                 <groupId>com.xiao.raining</groupId>
@@ -38,7 +45,6 @@
                 <artifactId>raining-dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            
 <!--            单元测试-->
             <dependency>
                 <groupId>junit</groupId>
@@ -47,12 +53,6 @@
                 <scope>test</scope>
             </dependency>
 <!--            mysql驱动-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.28</version>
-            </dependency>
-            
 <!--            servlet-->
             <dependency>
                 <groupId>javax.servlet</groupId>

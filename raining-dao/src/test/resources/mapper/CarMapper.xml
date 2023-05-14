@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="car">
+    
+    <insert id="testEnvInsert">
+        insert into bd_car (vcardno, vbrand, nguideprice, dproducedate, vcartype) VALUES ('999', '法拉利', 999.9, '2021-01-01', '燃油车');
+    </insert>
+    
+    <insert id="insertCar">
+<!--        insertByMap-->
+<!--        insert into bd_car (vcardno, vbrand, nguideprice, dproducedate, vcartype) VALUES (#{k1}, #{k2}, #{k3}, #{k4}, #{k5});-->
+<!--        insertByVo-->
+        insert into bd_car (vcardno, vbrand, nguideprice, dproducedate, vcartype) VALUES (#{vcardno}, #{vbrand}, #{nguideprice}, #{dproducedate}, #{vcartype});
+    </insert>
+    
+    <delete id="deleteCarById">
+        delete from bd_car where id = ${id};
+    </delete>
+    
+    <update id="updateCarById">
+        update bd_car set vcardno = #{vcardno}, vbrand = #{vbrand}, nguideprice = #{nguideprice}, dproducedate = #{dproducedate}, vcartype = #{vcartype} where id = #{id};
+    </update>
+    
+    <select id="queryCarById" resultType="com.xiao.raining.vo.car.CarVO">
+        select * from bd_car where id = #{id};
+    </select>
+    
+    <select id="queryCarList" resultType="com.xiao.raining.vo.car.CarVO">
+        select * from bd_car
+    </select>
+</mapper>
