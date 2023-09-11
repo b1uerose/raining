@@ -15,6 +15,7 @@
         <module>raining-service</module>
         <module>raining-dao</module>
         <module>raining-ai</module>
+        <module>raining-mybatis</module>
     </modules>
 
     <properties>

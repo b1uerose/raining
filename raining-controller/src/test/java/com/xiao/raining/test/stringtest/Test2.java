@@ -1,4 +1,4 @@
-package com.xiao.raining.test.test1;
+package com.xiao.raining.test.stringtest;
 
 import org.junit.After;
 import org.junit.AfterClass;

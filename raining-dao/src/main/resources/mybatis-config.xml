@@ -63,5 +63,6 @@
     <mappers>
 <!--        配置sql映射文件-->
         <mapper resource="mapper/CarMapper.xml"/>
+        <mapper resource="mapper/CarMapper2.xml"/>
     </mappers>
 </configuration>

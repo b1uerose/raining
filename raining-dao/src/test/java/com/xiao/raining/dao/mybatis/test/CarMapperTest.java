@@ -14,7 +14,7 @@ import com.xiao.raining.vo.car.CarVO;
  * Author: xiaojl
  * Date:2023-05-14 14:23
  */
-public class CardMapperTest {
+public class CarMapperTest {
     
     @Test
     public void testCarInsert() throws Exception {
@@ -86,5 +86,11 @@ public class CardMapperTest {
                 System.out.println(carVo);
             }
         }
+    }
+    
+    @Test
+    public void testMapper() throws Exception {
+        SqlSession sqlSession = MyBatisUtils.getSqlSession();
+        //sqlSession.getMapper(carmapp)
     }
 }

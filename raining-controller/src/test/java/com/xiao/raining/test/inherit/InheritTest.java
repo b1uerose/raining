@@ -12,6 +12,12 @@ public class InheritTest {
     public void Test() throws Exception {
         new ChildA().test();
         new ChildB().test();
+        
+        ChildA[] childArray = new ChildA[0];
+        Parent[] childArray1 = (Parent[])childArray;
+
+        System.out.println(childArray1);
+
     }
     
 }
